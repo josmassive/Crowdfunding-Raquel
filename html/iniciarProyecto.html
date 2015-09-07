@@ -133,8 +133,17 @@
                 <br><br>
                 <label>Tiempo de recuadacion</label>
                 <br><br>
-                <button class="buttonContinuarProject" type="submit"><i class="icon iXHover"></i>Continuar Proyecto</button>
+                <button class="buttonContinuarProject" type="submit"><i class="icon iXHover"></i>Guarda tu proyecto</button>
                 <br><br>
+                      <div id="list-post">
+        
+           <!-- list of post
+           <li>
+                <H3>colTituloPost
+                <p>colContenidoPost
+           -->
+                       </div>
+
                 </form>
 
                 <div class="project-short big-thumb">
@@ -718,9 +727,111 @@
     </div>
 </div>
 
+   
+
 <script type="text/javascript">
 
+Parse.initialize("UUuCdxNHZUkqIpCuE9szAltdKyYgSwRZGvVnISgR", "98B8jWcY8CHajmAaO4gRAR9r3JD3bZk3qdVa1AQt");
+var projects = Parse.Object.extend("Projects");//esta linea crea el objeto para guardar los post
 
+
+// se crea metodo para obtener mensajes de post de parse y cargar el muro
+    function getPosts(){
+      
+      var query = new Parse.Query(projects);//se crea variable con propiedades de classprueba
+      // se crean consultas 
+      query.include("user");//incluyeme el puntero user de la clase projects
+      query.find({
+        success: function(results){
+                    var output = "";
+                  for(var i in results){
+                    var nombreProject = results[i].get("nombreProject");
+                    var descriptionProject = results[i].get("descriptionProject");
+                    var user = results[i].get("user");//de la variable user que es la calase User
+                    //var username = user.get("username");//se hubica la columna username en la clase
+                    
+                  //se muestra en pantalla las imagenes subidas
+                   var img = "";
+                   if (results[i].get("file")) {
+                     var file = results[i].get("file");
+                     var url = file.url();
+                     console.log("url:"+url);
+                     img = "<img src=' "+url+ " ' >";
+                   }
+
+                    //console.log("TITULO:" + colTitulo);
+
+                   //se crean las etiquetas de salida en el muro  
+                    output += "<div>";
+                    output += "<h3>"+nombreProject+"</h3>";
+                    output += "<br>";
+                    //output += "<small>"+username+"</small>";//salida de username del post
+                    output += "<br>";
+                    output += "<p>"+descriptionProject+"</p>";
+                    output += img;
+                    output += "</div>";
+                  }
+                  $("#list-post").html(output);
+
+
+
+        }, error: function(error){
+               console.log("Query Error:" + error.message);
+           }
+      });
+    }
+    getPosts();
+
+
+// se crea metodo para almacenar post en parse
+    $("#capturaProyecto").submit(function(event){
+         event.preventDefault();
+          var nombreProject = $("#txt-nombreProject").val();
+          var descriptionProject = $("#txt-descriptionProject").val();
+          var user = Parse.User.current();//con esta variable se asignara el id de usuario al cada post 
+
+
+          var newProjects = new projects();
+          newProjects.set("nombreProject", nombreProject);
+          newProjects.set("descriptionProject", descriptionProject);
+          newProjects.set("user", user);//insertar el usuario en cada post
+
+          //almacenar imagen subida por el usuario video 10, aqui la el la parte final se rehubica el ultimo newclassprueba.save dentro de la condicion puesto que si no hay archivo que adjuntar se continua con el almacenamiento del post get file from for input
+          var fileElement = $("#post-file")[0];
+          var filePath = $("#post-file").val();
+          var fileName = filePath.split("\\").pop();
+
+          if(fileElement.files.length > 0){
+            var file = fileElement.files[0];
+            var newFile  = new Parse.File(fileName, file);
+            newFile.save({
+                success:function(){
+
+                }, error: function(file, error){
+                      console.log("File save Error: "+error.message);
+                }
+
+              }).then(function(theFile){
+                 newProjects.set("file", theFile);
+                 newProjects.save({success: function(){
+
+                 }, error:function(error){
+                    console.log("Post save with File error:"+error.message);
+                 }
+               });
+              });
+
+          } else{
+            //se continua con el almacenamiento del post este es el archivo que se rehubica dentro de la concion 
+            newProjects.save({
+               success:function(){
+                  getPosts();
+               }, error: function(error){
+                  console.log("Error:"+error.message);
+              }
+            });
+          }
+    });
 
 </script>
 
