@@ -738,7 +738,7 @@ var projects = Parse.Object.extend("Projects");//esta linea crea el objeto para 
 // se crea metodo para obtener mensajes de post de parse y cargar el muro
     function getPosts(){
       
-      var query = new Parse.Query(projects);//se crea variable con propiedades de classprueba
+      var query = new Parse.Query(projects);//se crea variable con propiedades de projects
       // se crean consultas 
       query.include("user");//incluyeme el puntero user de la clase projects
       query.find({
