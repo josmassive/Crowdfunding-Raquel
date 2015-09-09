@@ -79,9 +79,8 @@
                         <div id="current-user"></div>
                         <br>
                         <a href="#" class="btn btn-blue sys_show_popup_login">Registro</a>
-                        <a href="#" class="btn btn-black sys_show_popup_login">Login</a>
-                        <br><br>
-                        <button id="logout">Log out</button>
+                        <a href="#" class="btn btn-black sys_show_popup_login">Inicia Sesion</a>
+                        <button id="logout" class="btn btn-black">Cerrar Sesion</button>
                     </div>
                     <div class="form-search">
                         <form action="#">
@@ -272,15 +271,15 @@
         </div>
     </div><!--end: .home-feature-category -->
 
-     <div id="list-post" class="wrap-short-detail">
+    <!-- <div id="list-post" >
         
-           <!-- list of post 
+            list of post 
            <li>
                 <H3>colTituloPost
                 <p>colContenidoPost
            se comenta 
-           -->
-    </div>
+           
+    </div> -->
 
     <div class="home-popular-project">
         <div class="container_12">
@@ -353,6 +352,24 @@
                         </div>
                     </div>
                 </div><!--end: .grid_3 > .project-short-->
+ 
+                <div   class="clear clear-2col"></div>
+                <div  class="grid_3">
+                    <div id="list-post2" class="project-short sml-thumb">
+                        <div id="list-post"  class="top-project-info">
+                            <div  class="content-info-short clearfix">
+                                <div>
+    
+                                     <!-- list of post  ejemplo para llenar cuadro
+                                     <h3 class="rs acticle-title"><a class="be-fc-orange" href="http://www.twitter.com">CONTENIDO DE PRUEBA</a></h3>
+                                     <p class="rs title-description">Este es un contenido de prueba para este cuadro</p>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--end: .grid_3 > .project-short-->
+
+
 
             </div>
         </div>
@@ -480,74 +497,85 @@
 
 </div>
 
+
+<!-- se incian cuadros emergentes de registro e inicio de sesion -->
 <div class="popup-common" id="sys_popup_common">
     <div class="overlay-bl-bg"></div>
     <div class="container_12 pop-content">
         <div class="grid_12 wrap-btn-close ta-r">
             <i class="icon iBigX closePopup"></i>
         </div>
+        
+        <!-- cuadro de Registro de usuario -->
         <div class="grid_6 prefix_1">
             <div class="form login-form">
                 <form id="signup-form" action="#">
-                    <h3 class="rs title-form">Register</h3>
+                    <h3 class="rs title-form">Registro</h3>
                     <div class="box-white">
-                        <h4 class="rs title-box">New to Kickstars?</h4>
-                        <p class="rs">A Kickstars account is required to continue.</p>
+                        <h4 class="rs title-box">Nuevo en CRETEC?</h4>
+                        <p class="rs">Es necesario crear una cuenta para continuar.</p>
                         <div class="form-action">
                             <label for="txt_name">
-                                <input id="txt_name" class="txt fill-width" type="text" placeholder="Enter full name"/>
+                                <input id="txt_name" class="txt fill-width" type="text" placeholder="Introduce tu nombre completo"/>
                             </label>
                             <div class="wrap-2col clearfix">
                                 <div class="col">
+                                    <!--
                                     <label for="txt_email">
-                                        <input id="txt_email" class="txt fill-width" type="email" placeholder="Enter your e-mail address"/>
+                                        <input id="txt_email" class="txt fill-width" type="email" placeholder="Introduce tu direccion de correo"/>
                                     </label>
+                                    -->
+
+                                    <!--
                                     <label for="txt_re_email">
-                                        <input id="txt_re_email" class="txt fill-width" type="email" placeholder="Re-enter your e-mail adress"/>
+                                        <input id="txt_re_email" class="txt fill-width" type="email" placeholder="Re-introduce direccion de correo"/>
                                     </label>
+                                    -->
                                 </div>
                                 <div class="col">
                                     <label for="txt_password">
-                                        <input id="txt_password" class="txt fill-width" type="password" placeholder="Enter password"/>
+                                        <input id="txt_password" class="txt fill-width" type="password" placeholder="Introduce password"/>
                                     </label>
                                     <label for="txt_re_password">
-                                        <input id="txt_re_password" class="txt fill-width" type="password" placeholder="Re-enter password"/>
+                                        <input id="txt_re_password" class="txt fill-width" type="password" placeholder="Re-introduce password"/>
                                     </label>
                                 </div>
                             </div>
-                            <p class="rs pb10">By signing up, you agree to our <a href="#" class="fc-orange">terms of use</a> and <a href="#" class="fc-orange">privacy policy</a>.</p>
+                            <p class="rs pb10">Al registrarse, usted acepta nuestras <a href="#" class="fc-orange">condiciones de uso</a> y <a href="#" class="fc-orange">política de privacidad</a>.</p>
                             <p class="rs ta-c">
-                                <button class="btn btn-red btn-submit" type="submit">Register</button>
+                                <button class="btn btn-red btn-submit" type="submit">Registro</button>
                             </p>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
+        
+        <!-- cuadro de inicio de sesion -->
         <div class="grid_4">
             <div class="form login-form">
                 <form id="loginPanel" action="#">
-                    <h3 class="rs title-form">Login</h3>
+                    <h3 class="rs title-form">Iniciar Sesion</h3>
                     <div class="box-white">
-                        <h4 class="rs title-box">Already Have an Account?</h4>
-                        <p class="rs">Please log in to continue.</p>
+                        <h4 class="rs title-box">Ya tienes una cuenta?</h4>
+                        <p class="rs">Por favor inica sesion para continuar.</p>
                         <div class="form-action">
                             <label for="txt_user_login">
-                                <input id="txt_user_login" class="txt fill-width" type="text" placeholder="Enter your username"/>
+                                <input id="txt_user_login" class="txt fill-width" type="text" placeholder="Nombre de usuario"/>
                             </label>
                             <label for="txt_password_login">
-                                <input id="txt_password_login" class="txt fill-width" type="password" placeholder="Enter password"/>
+                                <input id="txt_password_login" class="txt fill-width" type="password" placeholder="Introduce password"/>
                             </label>
 
                             <label for="chk_remember" class="rs pb20 clearfix">
                                 <input id="chk_remember" type="checkbox" class="chk-remember"/>
-                                <span class="lbl-remember">Remember me</span>
+                                <span class="lbl-remember">Recuerdame</span>
                             </label>
                             <p class="rs ta-c pb10">
-                                <button class="btn btn-red btn-submit" type="submit">Login</button>
+                                <button class="btn btn-red btn-submit" type="submit">Iniciar sesion</button>
                             </p>
                             <p class="rs ta-c">
-                                <a href="#" class="fc-orange">I forgot my password</a>
+                                <a href="#" class="fc-orange">Olvide mi contraseña</a>
                             </p>
                         </div>
                     </div>
@@ -619,16 +647,16 @@ var projects = Parse.Object.extend("Projects");//esta linea crea el objeto para 
 
        var name =     $("#txt_name").val();
        var pass =     $("#txt_password").val();
-       var email =    $("#txt-email").val();
+       //var email =    $("#txt-email").val();
        var re_pass =  $("#txt_re_password").val();
-       var re_email = $("#txt_re_email").val();
+       //var re_email = $("#txt_re_email").val();
 
        var user = new Parse.User();
        user.set("username", name);
        user.set("password", pass);
-       user.set("email", email);
+       //user.set("email", email);
        user.set("re_pass", re_pass);
-       user.set("re_email", re_email);
+       //user.set("re_email", re_email);
 
        user.signUp(null, {
           success: function(user){
@@ -651,7 +679,8 @@ var projects = Parse.Object.extend("Projects");//esta linea crea el objeto para 
                   for(var i in results){
                     var nombreProject = results[i].get("nombreProject");
                     var descriptionProject = results[i].get("descriptionProject");
-                    var user = results[i].get("user");//de la variable user que es la clase User
+                    var montoRecaudar = results[i].get("montoRecaudar");
+                    //var user = results[i].get("user");//de la variable user que es la clase User
                     //var username = user.get("username");//se hubica la columna username en la clase
                     
                   //se muestra en pantalla las imagenes subidas
@@ -667,15 +696,19 @@ var projects = Parse.Object.extend("Projects");//esta linea crea el objeto para 
 
                    //se crean las etiquetas de salida en el muro  
                     output += "<div>";
-                    output += "<h3>"+nombreProject+"</h3>";
+                    output += img;
                     output += "<br>";
+                    output += "<h3>"+nombreProject+"</h3>";
                     //output += "<small>"+username+"</small>";//salida de username del post
                     output += "<br>";
                     output += "<p>"+descriptionProject+"</p>";
-                    output += img;
+                    output += "<br>";
+                    //output += "<p>"+"monto a recudar $"+montoRecaudar+"</p>";
                     output += "</div>";
+
+                    
                   }
-                  $("#list-post").html(output);
+                   $("#list-post").html(output);
 
 
 
