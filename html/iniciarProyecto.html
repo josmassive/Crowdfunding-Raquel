@@ -129,7 +129,7 @@
                 <a class="thumb-avatar" href="#"><img src="images/ex/th-119x119-9.jpg" alt="$USER_NAME"/></a>
                 <br><br>
                 <label>Meta de tu proyecto</label>
-                <input id="txt-nombreProject" type="text" class="txt fill-width" size="30" maxlength="50" placeholder="$$$"/>
+                <input id="txt-montoRecaudar" type="text" class="txt fill-width" size="30" maxlength="50" placeholder="$$$"/>
                 <br><br>
                 <label>Tiempo de recuadacion</label>
                 <br><br>
@@ -723,7 +723,7 @@
 
 <script type="text/javascript">
 
-Parse.initialize("UUuCdxNHZUkqIpCuE9szAltdKyYgSwRZGvVnISgR", "98B8jWcY8CHajmAaO4gRAR9r3JD3bZk3qdVa1AQt");
+Parse.initialize("numpc0bUxmJSPFjfRdgItIF4QD2YcIPEyVP4QPL5", "yI5vrwx2qOkCED7zSLLFdADyLy5EOV5b3ZSvYVZS");
 var projects = Parse.Object.extend("Projects");//esta linea crea el objeto para guardar los post
 
 
@@ -739,8 +739,7 @@ var projects = Parse.Object.extend("Projects");//esta linea crea el objeto para 
                   for(var i in results){
                     var nombreProject = results[i].get("nombreProject");
                     var descriptionProject = results[i].get("descriptionProject");
-                    var user = results[i].get("user");//de la variable user que es la calase User
-                    //var username = user.get("username");//se hubica la columna username en la clase
+                    
                     
                   //se muestra en pantalla las imagenes subidas
                    var img = "";
@@ -775,17 +774,19 @@ var projects = Parse.Object.extend("Projects");//esta linea crea el objeto para 
     getPosts();
 
 
-// se crea metodo para almacenar post en parse
+// se crea metodo para almacenar proyectos en parse en parse
     $("#capturaProyecto").submit(function(event){
          event.preventDefault();
           var nombreProject = $("#txt-nombreProject").val();
           var descriptionProject = $("#txt-descriptionProject").val();
+          //var montoRecaudar = $("#txt-montoRecaudar").val;
           var user = Parse.User.current();//con esta variable se asignara el id de usuario al cada post 
 
 
           var newProjects = new projects();
           newProjects.set("nombreProject", nombreProject);
           newProjects.set("descriptionProject", descriptionProject);
+          //newProjects.set("montoRecaudar", montoRecaudar);
           newProjects.set("user", user);//insertar el usuario en cada post
 
           //almacenar imagen subida por el usuario video 10, aqui la el la parte final se rehubica el ultimo newclassprueba.save dentro de la condicion puesto que si no hay archivo que adjuntar se continua con el almacenamiento del post get file from for input
@@ -798,17 +799,20 @@ var projects = Parse.Object.extend("Projects");//esta linea crea el objeto para 
             var newFile  = new Parse.File(fileName, file);
             newFile.save({
                 success:function(){
-
+                    
                 }, error: function(file, error){
                       console.log("File save Error: "+error.message);
+                      
                 }
 
               }).then(function(theFile){
                  newProjects.set("file", theFile);
                  newProjects.save({success: function(){
+                    alert("Proyecto creado exitosamente");
 
                  }, error:function(error){
                     console.log("Post save with File error:"+error.message);
+                    alert("!ERROR! al subir proyecto, intentelo mas tarde");
                  }
                });
               });
