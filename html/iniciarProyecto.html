@@ -39,13 +39,13 @@
                 <div class="grid_12">
                     <nav class="top-menu">
                         <ul id="main-menu" class="nav nav-horizontal clearfix">
-                            <li class="active"><a href="index.html">Home</a></li>
+                            <li class="active"><a href="index.html">Inicio</a></li>
                             <li class="sep"></li>
-                            <li><a href="all-pages.html">All Pages</a></li>
+                            <li><a href="all-pages.html">Todos los proyectos</a></li>
                             <li class="sep"></li>
-                            <li><a href="how-it-work.html">Help</a></li>
+                            <li><a href="how-it-work.html">Ayuda</a></li>
                             <li class="sep"></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="contact.html">Contacto</a></li>
                         </ul>
                         <a id="btn-toogle-menu" class="btn-toogle-menu" href="#alternate-menu">
                             <span class="line-bar"></span>
@@ -54,17 +54,16 @@
                         </a>
                         <div id="right-menu">
                             <ul class="alternate-menu">
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="all-pages.html">All Pages</a></li>
-                                <li><a href="how-it-work.html">Help</a></li>
-                                <li><a href="contact.html">Contact us</a></li>
+                                <li><a href="index.html">Inicio</a></li>
+                                <li><a href="all-pages.html">Todos los proyectos</a></li>
+                                <li><a href="how-it-work.html">Ayuda</a></li>
+                                <li><a href="contact.html">Contacto</a></li>
                             </ul>
                         </div>
                     </nav>
                     <div class="top-message clearfix">
                         <i class="icon iFolder"></i>
-                        <!-- se comenta
-                        <span class="txt-message">Nulla egestas nulla ac diam ultricies id viverra nisi adipiscing.</span> -->
+                        <span class="txt-message">Ayudando a la comunidad de emprendedores de la Iglesia Adventista</span>
                         <i class="icon iX"></i>
                         <div class="clear"></div>
                     </div>
@@ -76,13 +75,16 @@
             <div class="grid_12 header-content">
                 <div id="sys_header_right" class="header-right">
                     <div class="account-panel">
-                        <a href="#" class="btn btn-red sys_show_popup_login">Register</a>
-                        <a href="#" class="btn btn-black sys_show_popup_login">Login</a>
+                        <div id="current-user"></div>
+                        <br>
+                        <a href="#" class="btn btn-blue sys_show_popup_login">Registro</a>
+                        <a href="#" class="btn btn-black sys_show_popup_login">Inicia Sesion</a>
+                        <button id="logout" class="btn btn-black">Cerrar Sesion</button>
                     </div>
                     <div class="form-search">
                         <form action="#">
                             <label for="sys_txt_keyword">
-                                <input id="sys_txt_keyword" class="txt-keyword" type="text" placeholder="Search projects"/>
+                                <input id="sys_txt_keyword" class="txt-keyword" type="text" placeholder="Buscar proyectos"/>
                             </label>
                             <button class="btn-search" type="reset"><i class="icon iMagnifier"></i></button>
                             <button class="btn-reset-keyword" type="reset"><i class="icon iXHover"></i></button>
@@ -95,13 +97,13 @@
                     </h1>
                     <div class="main-nav clearfix">
                         <div class="nav-item">
-                            <a href="#" class="nav-title">Discover</a>
-                            <p class="rs nav-description">Great Projects</p>
+                            <a href="single-search-dropdown.html#" class="nav-title">Descrubre</a>
+                            <p class="rs nav-description">Proyectos</p>
                         </div>
                         <span class="sep"></span>
                         <div class="nav-item">
-                            <a href="" class="nav-title">Start</a>
-                            <p class="rs nav-description">Your Project</p>
+                            <a href="iniciarProyecto.html" class="nav-title">Iniciar</a>
+                            <p class="rs nav-description">Crea tu proyecto</p>
                         </div>
                     </div>
                 </div>
@@ -121,7 +123,7 @@
                 <br><br>
                 <label>Describe lo mas clararamente posible tu proyecto, recuerda que esto es de suma importancia para que tu proyecto sea patrocinado</label>
                 <br>
-                <textarea id="txt-descriptionProject"  name="comentarios" rows="10" cols="40">Escribe aquí tus comentarios</textarea>
+                <textarea id="txt-descriptionProject"  name="comentarios" rows="10" placeholder="Describe aqui tu proyecto" cols="40"></textarea>
                 <br><br>
                 <label>Agrega una imagen que describa tu proyecto</label>
                 <p><input id="post-file" type="file"></p>
@@ -647,68 +649,76 @@
         <div class="grid_12 wrap-btn-close ta-r">
             <i class="icon iBigX closePopup"></i>
         </div>
+        <!-- cuadro de Registro de usuario -->
         <div class="grid_6 prefix_1">
             <div class="form login-form">
-                <form action="#">
-                    <h3 class="rs title-form">Register</h3>
+                <form id="signup-form" action="#">
+                    <h3 class="rs title-form">Registro</h3>
                     <div class="box-white">
-                        <h4 class="rs title-box">New to Kickstars?</h4>
-                        <p class="rs">A Kickstars account is required to continue.</p>
+                        <h4 class="rs title-box">Nuevo en CRETEC?</h4>
+                        <p class="rs">Es necesario crear una cuenta para continuar.</p>
                         <div class="form-action">
                             <label for="txt_name">
-                                <input id="txt_name" class="txt fill-width" type="text" placeholder="Enter full name"/>
+                                <input id="txt_name" class="txt fill-width" type="text" placeholder="Introduce tu nombre completo"/>
                             </label>
                             <div class="wrap-2col clearfix">
                                 <div class="col">
+                                    <!--
                                     <label for="txt_email">
-                                        <input id="txt_email" class="txt fill-width" type="email" placeholder="Enter your e-mail address"/>
+                                        <input id="txt_email" class="txt fill-width" type="email" placeholder="Introduce tu direccion de correo"/>
                                     </label>
+                                    -->
+
+                                    <!--
                                     <label for="txt_re_email">
-                                        <input id="txt_re_email" class="txt fill-width" type="email" placeholder="Re-enter your e-mail adress"/>
+                                        <input id="txt_re_email" class="txt fill-width" type="email" placeholder="Re-introduce direccion de correo"/>
                                     </label>
+                                    -->
                                 </div>
                                 <div class="col">
                                     <label for="txt_password">
-                                        <input id="txt_password" class="txt fill-width" type="password" placeholder="Enter password"/>
+                                        <input id="txt_password" class="txt fill-width" type="password" placeholder="Introduce password"/>
                                     </label>
                                     <label for="txt_re_password">
-                                        <input id="txt_re_password" class="txt fill-width" type="password" placeholder="Re-enter password"/>
+                                        <input id="txt_re_password" class="txt fill-width" type="password" placeholder="Re-introduce password"/>
                                     </label>
                                 </div>
                             </div>
-                            <p class="rs pb10">By signing up, you agree to our <a href="#" class="fc-orange">terms of use</a> and <a href="#" class="fc-orange">privacy policy</a>.</p>
+                            <p class="rs pb10">Al registrarse, usted acepta nuestras <a href="#" class="fc-orange">condiciones de uso</a> y <a href="#" class="fc-orange">política de privacidad</a>.</p>
                             <p class="rs ta-c">
-                                <button class="btn btn-red btn-submit" type="submit">Register</button>
+                                <button class="btn btn-red btn-submit" type="submit">Registro</button>
                             </p>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
+        
+        <!-- cuadro de inicio de sesion -->
         <div class="grid_4">
             <div class="form login-form">
-                <form action="#">
-                    <h3 class="rs title-form">Login</h3>
+                <form id="loginPanel" action="#">
+                    <h3 class="rs title-form">Iniciar Sesion</h3>
                     <div class="box-white">
-                        <h4 class="rs title-box">Already Have an Account?</h4>
-                        <p class="rs">Please log in to continue.</p>
+                        <h4 class="rs title-box">Ya tienes una cuenta?</h4>
+                        <p class="rs">Por favor inica sesion para continuar.</p>
                         <div class="form-action">
-                            <label for="txt_email_login">
-                                <input id="txt_email_login" class="txt fill-width" type="email" placeholder="Enter your e-mail address"/>
+                            <label for="txt_user_login">
+                                <input id="txt_user_login" class="txt fill-width" type="text" placeholder="Nombre de usuario"/>
                             </label>
                             <label for="txt_password_login">
-                                <input id="txt_password_login" class="txt fill-width" type="password" placeholder="Enter password"/>
+                                <input id="txt_password_login" class="txt fill-width" type="password" placeholder="Introduce password"/>
                             </label>
 
                             <label for="chk_remember" class="rs pb20 clearfix">
                                 <input id="chk_remember" type="checkbox" class="chk-remember"/>
-                                <span class="lbl-remember">Remember me</span>
+                                <span class="lbl-remember">Recuerdame</span>
                             </label>
                             <p class="rs ta-c pb10">
-                                <button class="btn btn-red btn-submit" type="submit">Login</button>
+                                <button class="btn btn-red btn-submit" type="submit">Iniciar sesion</button>
                             </p>
                             <p class="rs ta-c">
-                                <a href="#" class="fc-orange">I forgot my password</a>
+                                <a href="#" class="fc-orange">Olvide mi contraseña</a>
                             </p>
                         </div>
                     </div>
@@ -726,6 +736,44 @@
 Parse.initialize("WIQnYpeA6J9yd6LGwP7ueJFsbbNhGua5i5kFE4Rw", "GkVJDXvOtvVkwINMqmSL0lznIfteiK7c1hvVjSKZ");
 
 var projects = Parse.Object.extend("Projects");//esta linea crea el objeto para guardar los post
+
+
+//se crea funcion para mostrar el nombre de usuario que hizo login
+    function checkLogin(){
+        if(Parse.User.current()){
+          //console.log("Logged in!"+Parse.User.current().get("username"));
+         $("#current-user").html("Bienvenido: "+Parse.User.current().get("username"));
+        }else{
+          $("#current-user").html("");
+        }
+    }
+    checkLogin();
+
+// se crea metodo para log out
+    $("#logout").click(function(event){
+          Parse.User.logOut();
+          checkLogin();
+    });
+
+//se crea metodo para login
+//txt_email_login     txt_password_login
+    $("#loginPanel").submit(function(event){
+         event.preventDefault();
+
+         var user = $("#txt_user_login").val();
+         var pass = $("#txt_password_login").val();
+
+         Parse.User.logIn(user, pass, {
+                  success:function(user){
+                          //console.log("log in success!");
+                          checkLogin();
+                          alert("BIENVENIDO");
+                  }, error:function(user, error){
+                          console.log("Log in Error:"+error.message);
+                          alert("ERROR, nombre de usuario o contraseña invalido");
+                  }
+         });
+    }); 
 
 
 // se crea metodo para obtener mensajes de post de parse y cargar el muro
