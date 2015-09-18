@@ -129,7 +129,7 @@
                 <a class="thumb-avatar" href="#"><img src="images/ex/th-119x119-9.jpg" alt="$USER_NAME"/></a>
                 <br><br>
                 <label>Meta de tu proyecto</label>
-                <input id="txt-montoRecaudar" type="text" class="txt fill-width" size="30" maxlength="50" placeholder="$$$"/>
+                <input id="txt-metaRecaudar" type="text" class="txt fill-width" size="30" maxlength="50" placeholder="$$$"/>
                 <br><br>
                 <label>Tiempo de recuadacion</label>
                 <br><br>
@@ -780,7 +780,7 @@ var projects = Parse.Object.extend("Projects");//esta linea crea el objeto para 
          event.preventDefault();
           var nombreProject = $("#txt-nombreProject").val();
           var descriptionProject = $("#txt-descriptionProject").val();
-          //var montoRecaudar = $("#txt-montoRecaudar").val;
+          var moetaRecaudar = $("#txt-metaRecaudar").val;
           var user = Parse.User.current();//con esta variable se asignara el id de usuario al cada post 
 
 
